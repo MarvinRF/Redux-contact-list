@@ -1,7 +1,12 @@
 import React from 'react'
+import Card from '../CardContato'
 
 const ListaDeContatos = () => {
-  return <div>ListaDeContatos</div>
+  return (
+    <div>
+      <Card />
+    </div>
+  )
 }
 
 export default ListaDeContatos

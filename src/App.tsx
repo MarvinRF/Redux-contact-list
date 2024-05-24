@@ -1,36 +1,23 @@
-import { ICardProps } from './components/CardContato'
+import { Provider } from 'react-redux'
+import EstiloGlobal, { BodyContainer, Container } from './styles'
+
 import Formulario from './components/Formulario'
 import Header from './components/Header'
 import ListaDeContatos from './components/ListaDeContatos'
-import EstiloGlobal, { BodyContainer, Container } from './styles'
-
-const lista: ICardProps[] = [
-  {
-    email: 'marvinva',
-    link: 'https://github.com/MarvinRF',
-    nome: 'MARVIN',
-    tel: 9846213
-  },
-  {
-    email: 'marvinva',
-    link: 'https://github.com/MarvinRF',
-    nome: 'MARVIN',
-    tel: 9846213
-  }
-]
+import store from './store'
 
 function App() {
   return (
-    <>
+    <Provider store={store}>
       <EstiloGlobal />
       <BodyContainer>
         <Header />
         <Container>
           <Formulario />
-          <ListaDeContatos lista={lista} />
+          <ListaDeContatos />
         </Container>
       </BodyContainer>
-    </>
+    </Provider>
   )
 }
 

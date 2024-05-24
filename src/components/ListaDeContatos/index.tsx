@@ -1,11 +1,22 @@
 import React from 'react'
 import Card from '../CardContato'
 
-const ListaDeContatos = () => {
+interface IListaProps {
+  lista: Array<{
+    link: string
+    nome: string
+    tel: number
+    email: string
+  }>
+}
+
+const ListaDeContatos = (props: IListaProps) => {
   return (
-    <div>
-      <Card />
-    </div>
+    <>
+      {props.lista.map((e, i) => {
+        return <Card {...e} key={i} />
+      })}
+    </>
   )
 }
 

@@ -10,19 +10,26 @@ import {
 import pen from '../../assets/pencil.png'
 import trash from '../../assets/trash.png'
 
-const Card = () => {
+export interface ICardProps {
+  link: string
+  nome: string
+  tel: number
+  email: string
+}
+
+const Card = ({ link, nome, tel, email }: ICardProps) => {
   return (
     <CardContato>
-      <Foto src="https://github.com/MarvinRF.png" alt="Foto de perfil" />
+      <Foto src={link + '.png'} alt="Foto de perfil" />
       <ul>
         <CapsulaDados>
           <Dados>
-            <li>Marvin</li>
-            <li>991790938</li>
+            <li>{nome}</li>
+            <li>{tel}</li>
           </Dados>
           <Dados>
-            <li>marvinvca@outlook.com</li>
-            <li>MarvinRF</li>
+            <li>{email}</li>
+            <li>{link}</li>
           </Dados>
         </CapsulaDados>
       </ul>

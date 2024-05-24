@@ -6,13 +6,11 @@ import github from '../../assets/github.png'
 import telefone from '../../assets/phone.png'
 import emailpic from '../../assets/email.png'
 import { addContact } from '../../store/reducers/contatos'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { FormEvent, SetStateAction, useState } from 'react'
-import { RootReducer } from '../../store'
 
 const Formulario = () => {
   const dispatch = useDispatch()
-  const { contatos } = useSelector((state: RootReducer) => state.contatos)
 
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -55,12 +53,11 @@ const Formulario = () => {
           <S.Icon src={telefone} alt="pessoa" />
           <Campo
             type="tel"
-            value={tel}
+            value={tel === 0 ? '' : tel.toString()}
             placeholder="Telefone"
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
               const inputValue = event.target.value
               const numericValue = parseInt(inputValue, 10)
-
               if (!isNaN(numericValue)) {
                 setTel(numericValue)
               } else if (inputValue === '') {
@@ -87,7 +84,7 @@ const Formulario = () => {
           <Campo
             type="url"
             value={link}
-            placeholder="Github"
+            placeholder="Github link"
             onChange={(event: { target: { value: SetStateAction<string> } }) =>
               setLink(event.target.value)
             }

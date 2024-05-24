@@ -16,6 +16,10 @@ export const ContainerHead = styled.div`
   padding: 1.25rem 0;
   margin: auto;
 
+  span {
+    color: #cf6ca7;
+  }
+
   @media (max-width: 768px) {
     width: 90%;
   }

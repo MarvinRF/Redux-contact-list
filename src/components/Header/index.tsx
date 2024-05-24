@@ -4,7 +4,9 @@ const Header = () => {
   return (
     <S.Header>
       <S.ContainerHead>
-        <h1>Agenda de Contatos</h1>
+        <h1>
+          Lista de Contatos <span>Redux</span>
+        </h1>
       </S.ContainerHead>
     </S.Header>
   )

@@ -22,7 +22,7 @@ const initialState: ContatosState = {
       link: 'https://github.com/marcosVitorCoelho'
     },
     {
-      id: 1,
+      id: 3,
       name: 'Davi',
       email: 'davi@email.com',
       tel: 7536432000,
@@ -52,6 +52,11 @@ const contatosSlice = createSlice({
         state.contatos.push(newContact)
       }
     },
+    contactDelete: (state, action: PayloadAction<number>) => {
+      state.contatos = state.contatos.filter(
+        (contato) => contato.id !== action.payload
+      )
+    },
     contactEdit: (state, action: PayloadAction<Contato>) => {
       const contactIndex = state.contatos.findIndex(
         (contato) => contato.id === action.payload.id
@@ -59,11 +64,6 @@ const contatosSlice = createSlice({
       if (contactIndex >= 0) {
         state.contatos[contactIndex] = action.payload
       }
-    },
-    contactDelete: (state, action: PayloadAction<number>) => {
-      state.contatos = state.contatos.filter(
-        (contato) => contato.id !== action.payload
-      )
     }
   }
 })

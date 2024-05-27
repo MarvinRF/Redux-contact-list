@@ -57,4 +57,9 @@ export const BotaoCancelarEDeletar = styled.button`
     max-height: 30px;
   }
 `
-export const BotaoEditar = styled(BotaoCancelarEDeletar)``
+export const BotaoEditar = styled(BotaoCancelarEDeletar)`
+  img {
+    max-width: 35px;
+    max-height: 35px;
+  }
+`
